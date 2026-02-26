@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.15)
 project(realsense_gazebo_plugin)
 
 # Default to C++14
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+if (NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
 endif()
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   # we dont use add_compile_options with pedantic in message packages
@@ -11,8 +11,9 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wno-inconsistent-missing-override")
 endif()
 
-set(FastRTPS_INCLUDE_DIR /opt/ros/foxy/include) 
-set(FastRTPS_LIBRARY_RELEASE /opt/ros/foxy/lib/libfastrtps.so)
+set(FastRTPS_INCLUDE_DIR /opt/ros/humble/include) 
+set(FastRTPS_LIBRARY_RELEASE /opt/ros/humble/lib/libfastrtps.so)
+
 # Load catkin and all dependencies required for this package
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
